@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'accounts/new'
+
+  resources :ticket_types
+  resources :products
+  resources :statuses
   get 'static_pages/admin'
 
   get 'static_pages/home'
