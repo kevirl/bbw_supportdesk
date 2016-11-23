@@ -1,2 +1,42 @@
-<h1>StaticPages#admin</h1>
-<p>Find me in app/views/static_pages/admin.html.erb</p>
+<% provide(:title, "Administration") %>
+
+<div class="page-header">
+
+<h1>Administration Functions</h1>
+
+</div>
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">SupportDesk - Administration</div>
+  <div class="panel-body">
+    <p>  Administration Functions for SupportDesk</p>
+
+<table class="table">
+  <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+  </tr>
+  
+  </div>
+ 
+      <tr>
+        <td><%= "Product Database Maintenace" %></td>
+        <td><%= link_to 'Access', catAdmin_path, class: 'btn btn-success' %></td>
+      </tr>
+      <tr>
+        <td><%= "Account Maintenacne" %></td>
+        <td><%= link_to 'Access', userListing_path, class: 'btn btn-success' %></td>
+      </tr>
+      <tr>
+        <td><%= "Reporting" %></td>
+        <td><%= link_to 'Access', phoenixList_path, class: 'btn btn-success' %></td>
+      </tr>
+
+</table>
+
+<div class="panel-footer">
+  <%= link_to 'Home', root_path, class: 'btn btn-success' %>
+  </div>
+
+  </div>
