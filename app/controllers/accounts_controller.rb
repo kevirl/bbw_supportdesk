@@ -16,6 +16,9 @@ class AccountsController < ApplicationController
   def create
     @user = Account.new(user_params)
     if @user.save
+      log_in @user
+      flash[:success] = "Welcome to SupportDesk"
+      redirect_to contact_path
     else
       render 'new'
     end

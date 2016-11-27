@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115212219) do
+ActiveRecord::Schema.define(version: 20161127144522) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "fname"
@@ -43,5 +43,21 @@ ActiveRecord::Schema.define(version: 20161115212219) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string   "ttype",      default: "Support", null: false
+    t.string   "email"
+    t.string   "status",     default: "Open",    null: false
+    t.string   "title"
+    t.text     "caselog"
+    t.string   "category"
+    t.string   "product"
+    t.text     "solution"
+    t.integer  "account_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "tickets", ["account_id", "created_at"], name: "index_tickets_on_account_id_and_created_at"
 
 end

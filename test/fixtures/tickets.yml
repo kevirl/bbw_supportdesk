@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ttype: MyString
+  email: MyString
+  status: MyString
+  title: MyString
+  caselog: MyText
+  category: MyString
+  product: MyString
+  solution: MyText
+  account_id: 
+
+two:
+  ttype: MyString
+  email: MyString
+  status: MyString
+  title: MyString
+  caselog: MyText
+  category: MyString
+  product: MyString
+  solution: MyText
+  account_id: 
