@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  
   def show
     @user = Account.find(params[:id])
   end
@@ -23,6 +24,21 @@ class AccountsController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+    @user = Account.find(params[:id])
+  end
+  
+  def update
+    @user = Account.find(params[:id])
+      if @user.update_attributes(user_params)
+        #Successful Update
+        redirect_to @user
+      else
+        render 'edit'
+      end
+    end
+    
   
   private
   

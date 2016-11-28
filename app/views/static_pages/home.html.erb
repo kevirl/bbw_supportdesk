@@ -2,15 +2,14 @@
 
 <div  class="center jumbotron">
     
-<h1>Welcome to the BBW SupportDesk Application</h1>
+<h1>BBW SupportDesk Application</h1>
 
 <div align="center">
-  <h3>In order to use the application you must have a valid Account registered on the system</br></br>
-    To create an Account click the Create Account button below</br></br> 
-    If your have an existing Account click the Login button below</br></br>
-  </h3>
+  <h3>Please select action from below</br></br></h3>
   
-  <h3><%= link_to "Create Account", signup_path, class: "btn btn-success" %></h3>  <h3><%= link_to "Login", signup_path, class: "btn btn-success" %></h3>
+  <h3><%= link_to "Create Ticket", new_ticket_path, class: "btn btn-success" %></h3>
+  <h3><%= link_to "Logout", logout_path, method: "delete", class: "btn btn-success" %></h3>
+  <h3><%= link_to "Create Additional Account", signup_path, class: "btn btn-success" %></h3>
 </div>  
 </div>
 <h1>Site Under Construction - Please Check Back Later</h1>
