@@ -13,13 +13,12 @@ class AccountsController < ApplicationController
     @user = Account.all
   end
 
-
   def create
     @user = Account.new(user_params)
     if @user.save
       log_in @user
       flash[:success] = "Welcome to SupportDesk"
-      redirect_to contact_path
+      redirect_to new_ticket_path
     else
       render 'new'
     end
@@ -37,7 +36,14 @@ class AccountsController < ApplicationController
       else
         render 'edit'
       end
-    end
+  end
+  
+      
+  def destroy
+    Account.find(params[:id]).destroy
+    flash[:success] = "Account Deleted"
+    redirect_to home_path
+  end
     
   
   private
