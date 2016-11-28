@@ -10,43 +10,66 @@
       </ul>
     </div>
   <% end %>
+<table class=table>
+  <tr>
+    <td>
+    <div class="control-group">
+      <div class="controls">
+      <%= f.label "Ticket Type", class: 'control-label' %>
+      <%= f.select(:ttype, options_for_select([['Support','Support'],['Change','Change']])) %>
+      <%= f.label "Status", class: 'control-label' %>
+      <%= f.select(:status, options_for_select([['Open','Open'],['In Progress','In Progress'],['Closed', 'Closed']])) %>
+      <%= f.label "Select Category", class: 'control-label' %>
+      <%= f.select(:category, options_for_select([['',''],['Software','Software'],['PC Hardware','PC Hardware'],
+      ['Laptop','Laptop'],['Mobile Device','Mobile Device'],['Printer','Printer']])) %>
+      <%= f.label "Select Product", class: 'control-label' %>
+      <%= f.select(:product, options_for_select([['',''],['MS Office','MS Office'],['Adobe','Adobe'],
+      ['eMail','eMail'],['HP PC','HP PC'],['HP Laserjet','HP Laserjet'],['iPhone','iPhone']])) %>
 
-  <div class="field">
-    <%= f.label :ttype %><br>
-    <%= f.text_field :ttype %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :caselog %><br>
-    <%= f.text_area :caselog %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :product %><br>
-    <%= f.text_field :product %>
-  </div>
-  <div class="field">
-    <%= f.label :solution %><br>
-    <%= f.text_area :solution %>
-  </div>
+    </div>
+  </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <div class="field">
+      <%= f.label :"eMail Address" %><br>
+      <%= f.text_field :email, size:"50" %>
+      </div>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :"Short Description" %>
+        <%= f.text_field :title, size:"100" %>
+      </div>
+    </td>
+    
+  </tr>
+  
+  <tr>
+    <td>
+      <div class="field">
+      <%= f.label :"Case Log / Extra Details" %><br>
+      <%= f.text_area :caselog, size:"60x8" %>
+      </div>
+    </td>
+    <td> 
+      <div class="field">
+      <%= f.label :Solution %><br>
+      <%= f.text_area :solution, size:"60x8" %>
+      </div>
+    </td>
+  </tr>
+  </table>
+  
   <div class="field">
     <%= f.label :account_id %><br>
     <%= f.text_field :account_id %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
