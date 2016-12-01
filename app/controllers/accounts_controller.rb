@@ -33,6 +33,7 @@ class AccountsController < ApplicationController
     @user = Account.find(params[:id])
       if @user.update_attributes(user_params)
         #Successful Update
+        flash[:success] = "Profile Updated"
         redirect_to @user
       else
         render 'edit'
@@ -51,6 +52,10 @@ class AccountsController < ApplicationController
   
     def user_params
       params.require(:account).permit(:fname, :lname, :email, :password, :password_confirmation, :phone)
+    end
+    
+    def account_params
+      params.require(:account).permit(:fname, :lname, :email, :phone)
     end
     
     # Before filters

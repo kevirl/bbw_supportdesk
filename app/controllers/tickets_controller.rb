@@ -5,6 +5,15 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     @tickets = Ticket.all
+    
+    if params[:search]
+      # select the ticket number which is a match for the search
+      @tickets = Ticket.search(params[:search])
+      @tickets = @tickets.order("created_at ASC")
+    else
+      @tickets = @tickets.order("created_at DESC")
+    end
+    
   end
 
   # GET /tickets/1
