@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+ # before_action :logged_in_account
   
   def show
     @user = Account.find(params[:id])
@@ -18,7 +19,7 @@ class AccountsController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to SupportDesk"
-      redirect_to new_ticket_path
+      redirect_to @user
     else
       render 'new'
     end
@@ -51,5 +52,16 @@ class AccountsController < ApplicationController
     def user_params
       params.require(:account).permit(:fname, :lname, :email, :password, :password_confirmation, :phone)
     end
+    
+    # Before filters
+    
+    # Checks for logged in account
+    def logged_in_account
+      unless logged_in?
+      flash[:danger] = "Please log in"
+      redirect_to login_path
+      end
+    end
+  
 end
 

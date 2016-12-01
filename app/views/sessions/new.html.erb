@@ -1,10 +1,11 @@
 <% provide(:title, "Login Page") %>
-<h1>Login Form</h1>
+<h3 align=center>You must sign in to use the Application</h3>
+
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
-
+    <h2 class="form-signin-heading">Please sign in</h2>
       <%= f.label :email %>
       <%= f.text_field :email, class: 'form-control' %>
 
