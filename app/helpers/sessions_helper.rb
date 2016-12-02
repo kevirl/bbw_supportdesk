@@ -20,5 +20,5 @@ module SessionsHelper
     session.delete(:account_id)
     @current_user = nil
   end
-  
+
 end

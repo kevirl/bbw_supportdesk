@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
-  # before_action :set_ticket, only: [:show, :edit, :update]
-  # before_action :admin_account, only: [:index]
+  # before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket, only: [:show, :edit, :update]
+  before_action :admin_account, only: [:index]
 
   # GET /tickets
   # GET /tickets.json

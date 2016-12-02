@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
-  # before_action :logged_in_account, only: [:edit, :update]
-  # before_action :admin_account, only: [:index, :destroy]
+  before_action :logged_in_account, only: [:edit, :update]
+  before_action :admin_account, only: [:index, :destroy]
   
   def show
     @user = Account.find(params[:id])
@@ -83,6 +83,7 @@ class AccountsController < ApplicationController
     # Checks for logged in account
     def logged_in_account
       unless logged_in?
+      store_location
       flash[:danger] = "Please log in"
       redirect_to login_path
       end

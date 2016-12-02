@@ -1,6 +1,7 @@
 <h2>Editing Account ID: <%= @user.id %></h2>
 
-
+<% if current_user.admin? %>
     <%= render 'form' %>
-
-
+    <% else %>
+    <%= render 'user_edit' %>
+<% end %>
