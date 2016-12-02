@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
- # before_action :logged_in_account
+  # before_action :logged_in_account, only: [:edit, :update]
+  # before_action :admin_account, only: [:index, :destroy]
   
   def show
     @user = Account.find(params[:id])
@@ -12,6 +13,25 @@ class AccountsController < ApplicationController
   
   def index
     @user = Account.all
+    
+    #Search based on email
+    if params[:search]
+      # select the Account email which is a match for the search
+      @user = Account.search(params[:search])
+      @user = @user.order("created_at ASC")
+    else
+      @user = @user.order("created_at DESC")
+    end
+    
+    #Search based on Account ID
+    if params[:idsearch]
+      # select the Account number which is a match for the search
+      @user = Account.idsearch(params[:idsearch])
+      @user = @user.order("created_at ASC")
+    else
+      @user = @user.order("created_at DESC")
+    end
+    
   end
 
   def create
@@ -51,7 +71,7 @@ class AccountsController < ApplicationController
   private
   
     def user_params
-      params.require(:account).permit(:fname, :lname, :email, :password, :password_confirmation, :phone)
+      params.require(:account).permit(:fname, :lname, :email, :password, :password_confirmation, :phone, :admin)
     end
     
     def account_params
@@ -66,6 +86,11 @@ class AccountsController < ApplicationController
       flash[:danger] = "Please log in"
       redirect_to login_path
       end
+    end
+    
+    # Checks for admin user
+    def admin_account
+      redirect_to home_path unless current_user.admin?
     end
   
 end

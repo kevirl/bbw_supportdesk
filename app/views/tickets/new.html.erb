@@ -1,5 +1,9 @@
-<h3>Create Ticket</h3>
+<h3 align="center">New Ticket</h3>
+
+<% if current_user.admin? %>
+    <h3 align="center">Support</h3>
+    <% else %>
+    <h3 align="center"><font color="red">Your Account ID: <%= @current_user.id %></font></h3>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', tickets_path %>

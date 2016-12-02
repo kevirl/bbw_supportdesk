@@ -5,7 +5,7 @@
 
       <ul>
       <% @ticket.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <font color = "red"><li><%= message %></li></font>
       <% end %>
       </ul>
     </div>
@@ -19,6 +19,7 @@
       <%= f.select(:ttype, options_for_select([['Support','Support'],['Change','Change']])) %>
       <%= f.label "Status", class: 'control-label' %>
       <%= f.select(:status, options_for_select([['Open','Open'],['In Progress','In Progress'],['Closed', 'Closed']])) %>
+      <br/>
       <%= f.label "Select Category", class: 'control-label' %>
       <%= f.select(:category, options_for_select([['',''],['Software','Software'],['PC Hardware','PC Hardware'],
       ['Laptop','Laptop'],['Mobile Device','Mobile Device'],['Printer','Printer']])) %>

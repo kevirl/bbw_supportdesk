@@ -9,4 +9,13 @@ class Account < ActiveRecord::Base
                         uniqueness: { case_sensitive: false }
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_blank: true
+    
+    def self.search(search_for)
+        Account.where("email = ?", search_for)
+    end
+  
+    def self.idsearch(search_for)
+        Account.where("id = ?", search_for)
+    end
+    
 end

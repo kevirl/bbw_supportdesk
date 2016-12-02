@@ -7,11 +7,18 @@
 <div align="center">
   <h3>Please select action from below</br></br></h3>
   
-  <h3><%= link_to "Create Ticket", new_ticket_path, class: "btn btn-success" %></h3>
-  <h3><%= link_to "Logout", logout_path, method: "delete", class: "btn btn-success" %></h3>
-  <h3><%= link_to "Create Additional Account", signup_path, class: "btn btn-success" %></h3>
+  <table class ="table">
+  <tr>
+    <td><h3><%= link_to "Create Ticket", new_ticket_path, class: "btn btn-success" %></h3></td>
+    <td><h3><%= link_to "Account Info", current_user, class: "btn btn-success" %></h3></td>
+    <td><h3><%= link_to "Edit Account", edit_account_path(current_user), class: "btn btn-success" %></h3></td>
+    <td><h3><%= link_to "Logout", logout_path, method: "delete", class: "btn btn-success" %></h3></td>
+</tr>
+
+</table>
+  
 </div>  
 </div>
-<h1>Site Under Construction - Please Check Back Later</h1>
+
 
 

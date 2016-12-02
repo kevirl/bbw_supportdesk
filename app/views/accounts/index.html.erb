@@ -2,13 +2,33 @@
 
 <h1>Account Listing</h1>
 
+<table class ="table">
+  <tr>
+<!-- Search based on Account email -->
+<%= form_tag(accounts_path, :method => "get") do %>
+  <%= text_field_tag :search, nil, :placeholder => "Account by email" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+or
+
+<!-- Search based on Accunt ID -->
+<%= form_tag(accounts_path, :method => "get") do %>
+  <%= text_field_tag :idsearch, nil, :placeholder => "Account by ID" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+</tr>
+
+</table>
+<br/>
+
 </div>
 
 <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading">SupportDesk Registered Accounts</div>
   <div class="panel-body">
-
 
 <table class="table">
   <tr>

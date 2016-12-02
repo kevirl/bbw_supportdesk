@@ -2,11 +2,42 @@
 
 <h1>Ticket Listing</h1>
 
+<table class ="table">
+  <tr>
+<!-- Search based on email -->
 <%= form_tag(tickets_path, :method => "get") do %>
-  <%= text_field_tag :search, nil, :placeholder => "Search Tickets by email" %>
+  <%= text_field_tag :search, nil, :placeholder => "Tickets by email" %>
   <%= submit_tag "Search" %>
 <% end %>
-  
+
+or
+
+<!-- Search based on ticket ID -->
+<%= form_tag(tickets_path, :method => "get") do %>
+  <%= text_field_tag :idsearch, nil, :placeholder => "Tickets by ID" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+or
+
+<!-- Search based on Category -->  
+<%= form_tag(tickets_path, :method => "get") do %>
+ <%= text_field_tag :catsearch, nil, :placeholder => "Tickets by Category" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+or
+
+<!-- Search based on Product -->  
+<%= form_tag(tickets_path, :method => "get") do %>
+  <%= text_field_tag :prodsearch, nil, :placeholder => "Tickets by Product" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+</tr>
+
+</table>
+<br/>
 
 </div>
 
